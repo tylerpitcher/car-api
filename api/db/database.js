@@ -1,7 +1,7 @@
 const knex = require('./knex');
 const hashIds = require('hashids');
 
-const hash = new hashIds(salt='salty', min_length=15);
+const hash = new hashIds(salt='8a5da52ed126447d359e70c05721a8aa', min_length=15);
 
 async function createUser() {
     let id = (await knex('users').insert({}))[0];
