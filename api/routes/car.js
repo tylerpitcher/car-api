@@ -18,20 +18,4 @@ async function hasKey(req, res, next) {
     }
 }
 
-router.get('/', hasKey, (req, res) => {
-
-});
-
-router.post('/new', hasKey, async (req, res) => {
-
-});
-
-router.put('/update', hasKey, async (req, res) => {
-
-});
-
-router.delete('/delete', hasKey, async (req, res) => {
-
-});
-
 module.exports = router;
