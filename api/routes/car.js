@@ -17,7 +17,7 @@ async function hasKey(req, res, next) {
     }
 }
 
-router.get('/', async (req, res) => {
+router.get('/', hasKey, async (req, res) => {
     const cars = await db.getCars();
     res.status(200).json({
         success: cars != undefined,
