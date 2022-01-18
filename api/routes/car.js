@@ -1,4 +1,3 @@
-const e = require('express');
 const express = require('express');
 const db = require('../db/database');
 const router = express.Router();
@@ -17,5 +16,13 @@ async function hasKey(req, res, next) {
         }
     }
 }
+
+router.get('/', async (req, res) => {
+    const cars = await db.getCars();
+    res.status(200).json({
+        success: cars != undefined,
+        cars: cars
+    });
+});
 
 module.exports = router;
