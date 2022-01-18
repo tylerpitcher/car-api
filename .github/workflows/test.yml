@@ -1,4 +1,4 @@
-name: units-test
+name: Supertest-All
 
 on: [push]
 
