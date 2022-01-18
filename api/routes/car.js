@@ -64,4 +64,21 @@ router.delete('/delete', hasKey, async (req, res) => {
     }
 });
 
+/*
+    Route used to update existing cars in the database.
+    Returns 400 if an id is not passed otherwise
+    it returns the updated car.
+*/
+router.put('/update', hasKey, async (req, res) => {
+    if (!Object.keys(req.body).includes('id')) res.sendStatus(400);
+    else {
+        let obj = {}, body = req.body;
+        if (body.make) obj.make = body.make;
+        if (body.model) obj.model = body.model;
+        if (body.year && Number.isInteger(body.year)) obj.year = body.year;
+        let car = await db.updateCar(req.body.id, obj);
+        res.status(200).json({ success: car != undefined, car: car });
+    }
+});
+
 module.exports = router;
