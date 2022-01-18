@@ -1,0 +1,33 @@
+{
+  "name": "car-api",
+  "version": "1.0.0",
+  "description": "A car api created using Express.js.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./api/main.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tylerpitcher/car-api.git"
+  },
+  "keywords": [],
+  "author": "Tyler Pitcher",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tylerpitcher/car-api/issues"
+  },
+  "homepage": "https://github.com/tylerpitcher/car-api#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "hashids": "^2.2.10",
+    "knex": "^0.95.15",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "jest": "^27.4.7",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.1"
+  }
+}
