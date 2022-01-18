@@ -1,3 +1,6 @@
+/*
+    File is meeting point for all routes and establishes middleware.
+*/
 const bodyParser = require('body-parser')
 const express = require('express');
 const app = express();

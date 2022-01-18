@@ -1,3 +1,6 @@
+/*
+    File tests all API points for the car route.
+*/
 const request = require('supertest');
 const db = require('../api/db/database');
 const app = require('../api/server');

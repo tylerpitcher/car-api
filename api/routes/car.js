@@ -1,7 +1,15 @@
+/*
+    File handles all routes to /car/*.
+*/
 const express = require('express');
 const db = require('../db/database');
 const router = express.Router();
 
+/*
+    Middleware function used to ensure a valid key was passed with requests.
+    Returns a status of 400 if it is an invalid key, 429 if the user's last request was less
+    than a minute ago, or runs the next() function if everything is valid.
+*/
 async function hasKey(req, res, next) {
     const key = req.body.key;
     if (typeof key != 'string') {
@@ -17,6 +25,9 @@ async function hasKey(req, res, next) {
     }
 }
 
+/*
+    Route returns all cars in the database.
+*/
 router.get('/', hasKey, async (req, res) => {
     const cars = await db.getCars();
     res.status(200).json({

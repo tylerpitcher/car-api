@@ -1,3 +1,6 @@
+/*
+    File connects knex to the db.sqlite file.
+*/
 const knex = require('knex');
 
 connectedKnex = knex({
