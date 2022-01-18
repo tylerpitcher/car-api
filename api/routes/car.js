@@ -36,4 +36,32 @@ router.get('/', hasKey, async (req, res) => {
     });
 });
 
+/* 
+    Route used to create new cars.
+    Returns the new car.
+*/
+router.post('/new', hasKey, async (req, res) => {
+    const keys = Object.keys(req.body);
+    if (keys.length != 4) res.sendStatus(400);
+    else if (!keys.includes('key')) res.sendStatus(400);
+    else if (!keys.includes('make')) res.sendStatus(400); 
+    else if (!keys.includes('model')) res.sendStatus(400);
+    else if (!keys.includes('year')) res.sendStatus(400);
+    else {
+        const car = await db.createCar(req.body.make, req.body.model, req.body.year);
+        res.status(200).json({ success: car != undefined, car: car });
+    }
+});
+
+/*
+    Route used to delete existing cars from the database.
+*/
+router.delete('/delete', hasKey, async (req, res) => {
+    if (!Number.isInteger(req.body.id)) res.sendStatus(400);
+    else {
+        const result = await db.deleteCar(req.body.id);
+        res.status(200).json({ success: result == 1 });
+    }
+});
+
 module.exports = router;

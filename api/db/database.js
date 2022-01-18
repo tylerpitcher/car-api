@@ -4,6 +4,7 @@
 const knex = require('./knex');
 const hashIds = require('hashids');
 
+// Replace salt before running in real world.
 const hash = new hashIds(salt='8a5da52ed126447d359e70c05721a8aa', min_length=15);
 
 /*
