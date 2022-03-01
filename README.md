@@ -20,7 +20,6 @@ All tests can be found in <a href="https://github.com/tylerpitcher/car-api/tree/
 ├── api_tests
 │   ├── car.test.js     ======> Tests all /car routes
 │   └── user.test.js    ======> Tests all /user routes
-├── node_modules
 ├── db.sqlite           ======> Blank db file
 ├── package-lock.json
 └── package.json
